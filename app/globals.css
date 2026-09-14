@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: theme("colors.sand.DEFAULT");
+  color: theme("colors.text.DEFAULT");
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-sans text-xs tracking-[0.18em] uppercase text-gold font-semibold;
+  }
+
+  .wrap {
+    @apply max-w-[1180px] mx-auto px-7;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-sm font-semibold text-sm cursor-pointer transition-all duration-300 border border-transparent hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-[0.98];
+  }
+  .btn-maroon {
+    @apply bg-maroon text-ivory hover:bg-maroon-dark hover:shadow-maroon/20;
+  }
+  .btn-outline {
+    @apply border-ink text-ink bg-transparent hover:bg-ink hover:text-ivory hover:shadow-ink/20;
+  }
+  .btn-whatsapp {
+    @apply bg-[#2f4f3e] text-ivory hover:bg-[#25402f] hover:shadow-[#25402f]/20;
+  }
+  .btn-gold {
+    @apply border-gold text-gold bg-transparent hover:bg-gold hover:text-ivory hover:shadow-gold/20;
+  }
+
+  /* Signature arch motif — Gulf majlis / mosque architecture reference */
+  .arch {
+    @apply rounded-arch overflow-hidden relative;
+  }
+  .arch-outline {
+    @apply border-[1.5px] border-gold-light;
+  }
+  .arch-mark {
+    @apply w-[22px] h-[26px] border-[1.5px] border-gold border-b-0 rounded-t-[14px] mx-auto;
+  }
+
+  .card {
+    @apply bg-ivory border border-stone p-8 rounded-[4px] transition-all duration-500 ease-out hover:bg-ink hover:border-ink hover:shadow-2xl hover:-translate-y-1.5 h-full flex flex-col;
+  }
+  .card h3 {
+    @apply font-serif text-[22px] text-ink mb-3 transition-colors duration-500;
+  }
+  .card p {
+    @apply leading-relaxed transition-colors duration-500;
+  }
+  
+  /* Hover state text colors */
+  .card:hover h3 {
+    @apply text-gold;
+  }
+  .card:hover p {
+    @apply text-ivory/80;
+  }
+  
+  .icon-arch {
+    @apply w-[48px] h-[54px] border-[1.5px] border-maroon border-b-0 rounded-t-[27px] mb-6 transition-all duration-500 ease-out relative overflow-hidden;
+  }
+  .icon-arch::after {
+    content: "";
+    @apply absolute inset-0 bg-gold/10 opacity-0 transition-opacity duration-500;
+  }
+  .card:hover .icon-arch {
+    @apply border-gold -translate-y-1;
+  }
+  .card:hover .icon-arch::after {
+    @apply opacity-100;
+  }
+
+  .section-head {
+    @apply text-center max-w-xl mx-auto mb-14;
+  }
+
+  .badge {
+    @apply px-2.5 py-1 rounded-full text-[11px] font-semibold;
+  }
+  .badge-new { @apply bg-[#eef2ea] text-[#3b6d11]; }
+  .badge-contacted { @apply bg-[#fdf3e0] text-[#854f0b]; }
+  .badge-quote { @apply bg-[#e6f1fb] text-[#0c447c]; }
+  .badge-confirmed { @apply bg-[#eaf3de] text-[#27500a]; }
+}
